@@ -21,7 +21,7 @@
         </fieldset>
     </form>
 
-    <?php
+    <?php 
 
         if (array_key_exists('nome', $_GET)) {
             $_SESSION['lista_de_tarefas'][] = $_GET['nome'];
