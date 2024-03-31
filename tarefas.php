@@ -11,7 +11,7 @@ if (array_key_exists('nome', $_GET) && $_GET['nome'] != '') {
     }
 
     if(array_key_exists('prazo', $_GET)) {
-        $tarefa['prazo'] = $_GET['prazo'];
+        $tarefa['prazo'] = traduz_data_para_banco($_GET['prazo']);
     }else {
         $tarefa['prazo'] = '';
     }
@@ -19,9 +19,9 @@ if (array_key_exists('nome', $_GET) && $_GET['nome'] != '') {
     $tarefa['prioridade'] = $_GET['prioridade'];
 
     if(array_key_exists('concluida', $_GET)) {
-        $tarefa['concluida'] = $_GET['concluida'];
+        $tarefa['concluida'] = 1;
     }else {
-        $tarefa['concluida'] = '';
+        $tarefa['concluida'] = 0;
     }
 
     gravar_tarefa($conexao, $tarefa);

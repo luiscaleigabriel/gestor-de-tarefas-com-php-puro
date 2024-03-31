@@ -3,6 +3,7 @@
 session_start();
 
 require('./banco.php');
-include('./tarefas.php');
-include('./tamplete.php');
+include('./ajudantes.php');
+require('./tarefas.php');
+require('./tamplete.php');
 

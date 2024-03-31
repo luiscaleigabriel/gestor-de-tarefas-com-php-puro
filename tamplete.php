@@ -31,7 +31,7 @@
                 </label>
             </fieldset>
             <label for="concluida">
-                Tarefa concluída: <input type="checkbox" name="concluida" id="concluida" value="sim" />
+                Tarefa concluída: <input type="checkbox" name="concluida" id="concluida" value="1" />
             </label>
             <div class="form-btn">
                 <input class="btn" type="submit" value="Cadastrar" />
@@ -55,9 +55,12 @@
                 <tr>
                     <td><?= $tarefa['nome'] ?></td>
                     <td><?= $tarefa['descricao'] ?></td>
-                    <td><?= $tarefa['prazo'] ?></td>
-                    <td><?= $tarefa['prioridade'] ?></td>
-                    <td><?= $tarefa['concluida'] ?></td>
+                    <td><?= traduz_data_para_eibir($tarefa['prazo']) ?></td>
+                    <td><?= traduz_prioridade($tarefa['prioridade']); ?></td>
+                    <td><?= $tarefa['concluida'] == 1 ? 'Sim' : 'Não' ?></td>
+                    <td>
+                        <a href="editar.php?id=<?= $tarefa['id']?>">Editar</a> | <a href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= $tarefa['id']?>">Excluir</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
