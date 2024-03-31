@@ -32,3 +32,27 @@ function gravar_tarefa($conexao, $tarefa) {
     $sql = "insert into tarefas (nome, descricao, prazo, prioridade, concluida) values ('{$tarefa['nome']}', '{$tarefa['descricao']}', '{$tarefa['prazo']}', '{$tarefa['prioridade']}', {$tarefa['concluida']})";
     mysqli_query($conexao, $sql);
 }
+
+function buscar_tarefa($conexao, $id) {
+    $sql = "select * from `tarefas` where id = $id";
+    $resultado = mysqli_query($conexao, $sql);
+    return mysqli_fetch_assoc($resultado);
+}
+
+function editar_tarefa($conexao, $tarefa) {
+
+    $sql = "UPDATE	tarefas	SET
+    nome = '{$tarefa['nome']}',
+    descricao = '{$tarefa['descricao']}',
+    prioridade = {$tarefa['prioridade']},
+    prazo = '{$tarefa['prazo']}',
+    concluida = {$tarefa['concluida']}
+    WHERE id = {$tarefa['id']}";
+
+    mysqli_query($conexao, $sql);
+}
+
+function remover_tarefa($conexao, $id) {
+    $sql = "delete from `tarefas` where id = $id";
+    mysqli_query($conexao, $sql);
+}

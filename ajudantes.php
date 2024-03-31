@@ -21,7 +21,6 @@ function traduz_prioridade($codigo) {
 
 function traduz_data_para_banco($data) {
 
-    var_dump($data);
     if($data == '') {
         $data = '1000-01-01';
     }

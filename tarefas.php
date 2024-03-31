@@ -2,7 +2,7 @@
 
 if (array_key_exists('nome', $_GET) && $_GET['nome'] != '') {
     $tarefa = [];
-    $tarefa['nome'] = $_GET['nome'];
+    $tarefa['nome'] = $_GET['nome']; 
 
     if(array_key_exists('descricao', $_GET)) {
         $tarefa['descricao'] = $_GET['descricao'];
@@ -25,6 +25,8 @@ if (array_key_exists('nome', $_GET) && $_GET['nome'] != '') {
     }
 
     gravar_tarefa($conexao, $tarefa);
+    header('Location: index.php');
+    die();
 }
 
 $lista_de_tarefas = [];
