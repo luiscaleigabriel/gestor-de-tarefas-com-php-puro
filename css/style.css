@@ -10,7 +10,7 @@
 body {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -29,19 +29,42 @@ fieldset {
     padding: 10px;
 } 
 
-fieldset > label > input {
+fieldset > label > input[type='text'] {
     width: 100%;
     height: 30px;
     margin: 6px 0;
 }
 
+fieldset > label > textarea {
+    width: 100%;
+}
+
+fieldset > label {
+    display: block;
+    margin-top: 10px;
+}
+
+fieldset > fieldset > label > input[type='radio'] {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+fieldset > fieldset  {
+    margin-bottom: 10px;
+}
+
 .btn {
+    margin-top: 10px;
     cursor: pointer;
     padding: 10px 20px; 
 }
 
+.form-btn {
+    text-align: right;
+}
+
 table {
-    width: 400px;
+    width: 600px;
     margin-top: 20px;
 }
 
