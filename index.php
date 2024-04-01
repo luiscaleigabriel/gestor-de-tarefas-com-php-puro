@@ -12,11 +12,11 @@ require('./tarefas.php');
 
 $tarefa	=	[
     'id' =>	0,
-    'nome' => '',
-    'descricao' => '',
-    'prazo' => '',
-    'prioridade' =>	1,
-    'concluida' =>	''
+    'nome' => (array_key_exists('nome', $_POST) ? $_POST['nome'] : ''),
+    'descricao' => (array_key_exists('descricao', $_POST) ? $_POST['descricao'] : ''),
+    'prazo' => (array_key_exists('prazo', $_POST) ? $_POST['prazo'] : ''),
+    'prioridade' =>	(array_key_exists('prioridade', $_POST) ? $_POST['prioridade'] : ''),
+    'concluida' =>	(array_key_exists('concluida', $_POST) ? $_POST['concluida'] : '')
 ];
 
 require('./tamplete.php');

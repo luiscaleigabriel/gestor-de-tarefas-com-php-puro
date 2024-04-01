@@ -1,9 +1,10 @@
-<form action="">
+<form method="POST">
     <input type="hidden" name="id" value="<?= $tarefa['id'] ?>">
     <fieldset>
         <legend>Nova Tarefa</legend>
         <label for="nome">
-        Tarefa: <input type="text" name="nome" id="nome" value="<?= $tarefa['nome'] ?>" />
+        Tarefa: <span class="error"><?= $tem_erros ? $erros_validacao['nome'] : '' ?></span> 
+        <input class="<?= ($tem_erros && array_key_exists('nome', $erros_validacao)) ? 'errorform' : '' ?>" type="text" name="nome" id="nome" value="<?= $tarefa['nome'] ?>" />
         </label>
         <label for="descricao">
         Descrição (Opcional): <textarea name="descricao" id="descricao" cols="30" rows="6" ><?= $tarefa['descricao'] ?></textarea> 

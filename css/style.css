@@ -96,3 +96,12 @@ table > tbody > tr > td {
     color: dodgerblue;
     background-color: transparent;
 }
+
+.error {
+    font-size: 0.8rem;
+    color: red;
+}
+
+.errorform {
+    border-color: tomato;
+}

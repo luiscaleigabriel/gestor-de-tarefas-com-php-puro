@@ -38,3 +38,11 @@ function traduz_data_para_eibir($data) {
     
     return $data->format('d/m/Y');
 }
+
+function tem_post() {
+    if(count($_POST) > 0) {
+        return true;
+    }
+
+    return false;
+}
