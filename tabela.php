@@ -13,7 +13,7 @@
     <tbody>
         <?php foreach($lista_de_tarefas as $tarefa): ?>
             <tr>
-                <td><?= $tarefa['nome'] ?></td>
+                <td><a href="tarefa.php?id=<?= $tarefa['id']?>"><?= $tarefa['nome'] ?></a></td>
                 <td><?= $tarefa['descricao'] ?></td>
                 <td><?= traduz_data_para_eibir($tarefa['prazo']) ?></td>
                 <td><?= traduz_prioridade($tarefa['prioridade']); ?></td>

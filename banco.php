@@ -13,6 +13,8 @@ if(mysqli_connect_errno()) {
     die();
 }
 
+// Tarefas
+
 function buscar_tarefas($conexao) {
 
     $sql = 'select * from `tarefas`';
@@ -55,4 +57,36 @@ function editar_tarefa($conexao, $tarefa) {
 function remover_tarefa($conexao, $id) {
     $sql = "delete from `tarefas` where id = $id";
     mysqli_query($conexao, $sql);
+}
+
+// Anexos
+
+function gravar_anexo($conexao, $anexo) {
+    $sql = "insert into anexos (tarefa_id, nome, anexo) values ('{$anexo['tarefa_id']}', '{$anexo['nome']}', '{$anexo['anexo']}')";
+
+    mysqli_query($conexao, $sql);
+}
+
+function buscar_anexos($conexao, $id) {
+    $sql = 'select * from `anexos`';
+    $resultado = mysqli_query($conexao, $sql);
+
+    $anexos = [];
+
+    while($anexo = mysqli_fetch_assoc($resultado)) {
+        $anexos[] = $anexo;    
+    }
+
+    return $anexos;
+}
+
+function remover_anexo($conexao, $id) {
+    $sql = "delete from `anexos` where id = $id";
+    mysqli_query($conexao, $sql);
+}
+
+function buscar_anexo($conexao, $id) {
+    $sql = "select * from `anexos` where id = $id";
+    $resultado = mysqli_query($conexao, $sql);
+    return mysqli_fetch_assoc($resultado);
 }

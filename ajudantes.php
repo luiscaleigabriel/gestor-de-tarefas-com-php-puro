@@ -19,6 +19,22 @@ function traduz_prioridade($codigo) {
     return $prioridade;
 }
 
+function traduz_concluida($codigo) {
+
+    $concluida = '';
+
+    switch($codigo) {
+        case 0:
+            $concluida =  "Sim";
+        break;
+        case 1:
+            $concluida = "Não";
+        break;
+    }
+
+    return $concluida;
+}
+
 function traduz_data_para_banco($data) {
 
     if($data == '') {
@@ -45,4 +61,20 @@ function tem_post() {
     }
 
     return false;
+}
+
+function tratar_anexo($anexo) {
+    $padrao = '/^.+(\.pdf|\.zip)$/';
+    $resultado = preg_match($padrao, $anexo['name']);
+
+    if($resultado == 0) {
+        return false;
+    }
+
+    move_uploaded_file(
+        $anexo['tmp_name'],
+        "anexos/{$anexo['name']}"
+    );
+
+    return true;
 }

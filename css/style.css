@@ -105,3 +105,8 @@ table > tbody > tr > td {
 .errorform {
     border-color: tomato;
 }
+
+/* Página de Anexo */
+.bloco-principal p {
+    margin: 10px 0;
+}
