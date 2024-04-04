@@ -1,11 +1,6 @@
 <?php
 
-$hostName = 'localhost';
-$userName = 'root';
-$password = '';
-$bdName = 'tarefas';
-
-$conexao = mysqli_connect($hostName, $userName, $password, $bdName);
+$conexao = mysqli_connect(BD_SERVIDOR,  BD_USER, BD_SENHA, BD_BANCO);
 
 if(mysqli_connect_errno()) {
     echo "Problemas para conectar ao banco. Erro: ";

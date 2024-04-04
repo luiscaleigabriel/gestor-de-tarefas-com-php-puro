@@ -23,6 +23,10 @@
         <label for="concluida">
             Tarefa concluída: <input type="checkbox" name="concluida" id="concluida" <?= $tarefa['concluida'] == 1 ? 'checked' : '' ?> />
         </label>
+        <label>
+				Lembrete por e-mail:
+				<input type="checkbox" name="lembrete" value="1" />
+        </label>
         <div class="form-btn">
             <input class="btn" type="submit" value="<?= $tarefa['id'] > 0 ? 'Atualizar' : 'Cadastrar' ?>" />
         </div>

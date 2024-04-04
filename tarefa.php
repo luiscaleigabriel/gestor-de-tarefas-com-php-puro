@@ -1,5 +1,6 @@
 <?php
 
+require	"config.php";
 require './banco.php';
 require './ajudantes.php';
 

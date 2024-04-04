@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require	"config.php";
 require	"./banco.php";
 require	"./ajudantes.php";
 
@@ -43,6 +44,12 @@ if (tem_post()) {
 
     if(!$tem_erros) {
         editar_tarefa($conexao, $tarefa);
+
+        if(array_key_exists('lembrete', $_POST) && $_POST['lembrete'] == 1) {
+            $anexos = buscar_anexos($conexao, $tarefa['id']);
+            enviar_email($tarefa, $anexos);
+        }
+
         header('Location: index.php');
         die();
     }
