@@ -78,3 +78,18 @@ function tratar_anexo($anexo) {
 
     return true;
 }
+
+function enviar_email($tarefa, $anexos = []) {
+    
+}
+
+function preparar_corpo_do_email($tarefa, $anexos = []) {
+
+    ob_start();
+    include './template_emal.php';
+    $corpo =  ob_get_contents();
+    ob_end_clean();
+
+    return $corpo;
+
+}
