@@ -7,4 +7,4 @@ define('BD_SENHA', '');
 define('BD_BANCO', 'tarefas');
 
 // Email para notificação
-define('EMAIL_NOTIFICACAO', 'luiscagabriel@gmail.com');
+define('EMAIL_NOTIFICACAO', 'luiscagabriel20@gmail.com');

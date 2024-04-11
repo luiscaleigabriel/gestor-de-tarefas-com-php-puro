@@ -1,5 +1,7 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+
 function traduz_prioridade($codigo) {
 
     $prioridade = '';
@@ -79,10 +81,6 @@ function tratar_anexo($anexo) {
     return true;
 }
 
-function enviar_email($tarefa, $anexos = []) {
-    
-}
-
 function preparar_corpo_do_email($tarefa, $anexos = []) {
 
     ob_start();
@@ -92,4 +90,27 @@ function preparar_corpo_do_email($tarefa, $anexos = []) {
 
     return $corpo;
 
+}
+
+function enviar_email($tarefa, $anexos = []) 
+{
+    $email = new PHPMailer();
+    $email->isSMTP();
+    $email->Host = 'stmp.gmail.com';
+    $email->Port = 587;
+    $email->SMTPSecure = 'tls';
+    $email->SMTPAuth = true;
+    $email->Username = "luiscagabriel20@gmail.com";
+    $email->Password = "92937992";
+    $email->setFrom("luiscaleigabriel@gmail.com", "Avisador de Tarefas");
+    $email->addAddress(EMAIL_NOTIFICACAO);
+    $email->Subject = "Aviso de tarefa: {$tarefa['nome']}";
+    $corpo = preparar_corpo_do_email($tarefa, $anexos);
+    $email->msgHTML($corpo);
+
+    foreach	($anexos as $anexo)	{
+        $email->addAttachment("anexos/{$anexo['arquivo']}");
+    }
+
+    $email->send();
 }

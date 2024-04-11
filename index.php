@@ -2,7 +2,7 @@
 
 session_start();
 
-require	"config.php";
+require('config.php');
 require('./banco.php');
 include('./ajudantes.php');
 
